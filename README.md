@@ -1,8 +1,7 @@
-# React + Vite
+# React WYSIWYG Markdown editor (markdown-it version)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a very basic component that implements a live "What you see is what you get" (WYSIWYG) Markdown editor in React. I am using the "markdown-it" library
 
-Currently, two official plugins are available:
+The point of this is to create an editor that I can use to create blog posts and more or less see exactly what the blog post will look like before sending the data for the blog post to be stored on the backend in markdown format. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+I am trying out various libraries for this task so I may have other repos with similar live Markdown React components available on my Github profile created with different libraries, depending on when you are reading this. 
