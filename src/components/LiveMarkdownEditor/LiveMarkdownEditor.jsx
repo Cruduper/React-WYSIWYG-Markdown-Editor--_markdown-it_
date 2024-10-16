@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import MarkdownIt from 'markdown-it';
-import './LiveMarkdownEditor.css';
 import {demoText} from '../../data/demoText.js'
+import './LiveMarkdownEditor.scss';
 
 const md_it = new MarkdownIt();
 

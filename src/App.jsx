@@ -1,5 +1,5 @@
 import LiveMarkdownEditor from './components/LiveMarkdownEditor/LiveMarkdownEditor'
-import './styles-global/App.css'
+import './styles-global/App.scss'
 
 
 
