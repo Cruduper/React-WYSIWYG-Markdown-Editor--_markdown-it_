@@ -40,6 +40,7 @@ const LiveMarkdownEditor = () => {
   return (
     <>
     <div className="text-editor">
+      <h2 className="text-editor-header">Markdown-it Text Editor</h2>
       <textarea
         value={textInput}
         onChange={handleTextInputChange}
