@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import MarkdownIt from 'markdown-it';
 import {demoText} from '../../data/demoText.js'
 import './LiveMarkdownEditor.scss';
@@ -8,7 +8,8 @@ const md_it = new MarkdownIt();
 const LiveMarkdownEditor = () => {
   const [textInput, setTextInput] = useState(demoText);
   const [htmlPreview, setHtmlPreview] = useState('');
-  const [viewMode, setViewMode] = useState('preview'); // 'preview', 'markdown', or 'html'
+    //TODO make viewMode load from config
+  const [viewMode, setViewMode] = useState('HTML Preview'); // 'HTML Preview', 'Raw Markdown', or 'Raw HTML'
 
   useEffect(() => {
     setHtmlPreview(md_it.render(demoText));
@@ -21,7 +22,18 @@ const LiveMarkdownEditor = () => {
     setHtmlPreview(html);
   };
 
+  function getPreviewElement() {
+    if (viewMode === 'HTML Preview') {
+      return <div dangerouslySetInnerHTML={{ __html: htmlPreview }} />
+    } else if (viewMode === 'Raw HTML') {
+      return <pre>{htmlPreview}</pre>
+    } else {
+      return <pre>{textInput}</pre>
+    }
+  }
+
   return (
+    <>
     <div className="text-editor">
       <textarea
         value={textInput}
@@ -29,27 +41,20 @@ const LiveMarkdownEditor = () => {
         className="markdown-input"
       />
       <div className="view-buttons">
-        <button onClick={() => setViewMode('preview')}>HTML Preview</button>
-        <button onClick={() => setViewMode('markdown')}>Raw Markdown</button>
-        <button onClick={() => setViewMode('html')}>Raw HTML</button>
+        <button onClick={() => setViewMode('HTML Preview')}>HTML Preview</button>
+        <button onClick={() => setViewMode('Raw HTML')}>Raw HTML</button>
+        <button onClick={() => setViewMode('Raw Markdown')}>Raw Markdown</button>
       </div>
       <div className="live-preview-container">
         <h3 id="live-preview-header-text">
-          {viewMode === 'preview' && 'Formatted Preview'}
-          {viewMode === 'markdown' && 'Raw Markdown'}
-          {viewMode === 'html' && 'Raw HTML'}
+          {viewMode === 'HTML Preview' && 'Formatted'}
+          {viewMode === 'Raw HTML' && 'HTML'}
+          {viewMode === 'Raw Markdown' && 'Markdown'}
         </h3>
-        {viewMode === 'preview' &&
-          <div dangerouslySetInnerHTML={{ __html: htmlPreview }} />
-        }
-        {viewMode === 'markdown' &&
-          <pre>{textInput}</pre>
-        }
-        {viewMode === 'html' &&
-          <pre>{htmlPreview}</pre>
-        }
+          {getPreviewElement()}
       </div>
     </div>
+    </>
   );
 };
 
