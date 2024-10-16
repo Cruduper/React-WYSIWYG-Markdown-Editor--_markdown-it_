@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import MarkdownIt from 'markdown-it';
 import {demoText} from '../../data/demoText.js'
 import './LiveMarkdownEditor.scss';
@@ -10,9 +10,14 @@ const LiveMarkdownEditor = () => {
   const [htmlPreview, setHtmlPreview] = useState('');
     //TODO make viewMode load from config
   const [viewMode, setViewMode] = useState('HTML Preview'); // 'HTML Preview', 'Raw Markdown', or 'Raw HTML'
+  const defaultButtonRef = useRef(null);
 
   useEffect(() => {
     setHtmlPreview(md_it.render(demoText));
+
+    if (defaultButtonRef.current) {
+      defaultButtonRef.current.focus();
+    }
   }, [])
 
   const handleTextInputChange = (event) => {
@@ -41,7 +46,7 @@ const LiveMarkdownEditor = () => {
         className="markdown-input"
       />
       <div className="view-buttons">
-        <button onClick={() => setViewMode('HTML Preview')}>HTML Preview</button>
+        <button ref={defaultButtonRef} onClick={() => setViewMode('HTML Preview')}>HTML Preview</button>
         <button onClick={() => setViewMode('Raw HTML')}>Raw HTML</button>
         <button onClick={() => setViewMode('Raw Markdown')}>Raw Markdown</button>
       </div>
