@@ -6,7 +6,7 @@
 --- 
 
 ### 📖 Description
-This is a very basic component that implements a live "What you see is what you get" (WYSIWYG) Markdown editor in React using the "markdown-it" JavaScript library.  
+This is a very basic component that implements a live "What you see is what you get" (WYSIWYG) Markdown editor in React using the [markdown-it](https://github.com/markdown-it/markdown-it#readme) JavaScript library.  
 
 The point of this component is to create an editor that I can use to author blog posts in-browser, and more or less see exactly what the blog post will look like before sending the text data for the blog post to be stored on the backend in markdown format. The backend will send the markdown for a specific blog post upon user ask, and display it for website visitors in roughly the same way it is displayed in this WYSIWYG Editor.   
 
@@ -20,7 +20,7 @@ I am trying out various libraries for this task so I may have other repos with s
 * _HTML_
 * _sass_
 * _eslint_
-* _markdown-it.js_
+* _markdown-it_ \([repo/docs](https://github.com/markdown-it/markdown-it#readme)\)
 * _npm_
 <br><br/>
 
