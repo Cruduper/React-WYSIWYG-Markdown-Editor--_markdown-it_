@@ -33,8 +33,8 @@ const LiveMarkdownEditor = () => {
         <button onClick={() => setViewMode('markdown')}>Raw Markdown</button>
         <button onClick={() => setViewMode('html')}>Raw HTML</button>
       </div>
-      <div className="preview">
-        <h3 id="preview-header-text">
+      <div className="live-preview-container">
+        <h3 id="live-preview-header-text">
           {viewMode === 'preview' && 'Formatted Preview'}
           {viewMode === 'markdown' && 'Raw Markdown'}
           {viewMode === 'html' && 'Raw HTML'}
